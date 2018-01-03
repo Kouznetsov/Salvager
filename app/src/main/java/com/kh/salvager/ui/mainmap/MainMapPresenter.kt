@@ -1,5 +1,6 @@
 package com.kh.salvager.ui.mainmap
 
+import com.google.android.gms.maps.model.Marker
 import com.kh.salvager.data.DataOperationCallback
 import com.kh.salvager.data.salvageables.Salvageable
 import com.kh.salvager.data.salvageables.SalvageablesDataManager
@@ -54,5 +55,9 @@ class MainMapPresenter : Presenter<MainMapView> {
             view.showGenericError(Throwable("Failed to get GoogleMap"))
             view.setLoading(false)
         }
+    }
+
+    fun onSvblClick(svblId: Int?) {
+        view.navigateToViewSvbl(salvageables.first { it.id == svblId })
     }
 }

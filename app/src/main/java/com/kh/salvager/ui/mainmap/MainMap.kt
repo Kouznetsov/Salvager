@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.kh.salvager.R
 import com.kh.salvager.data.salvageables.Salvageable
@@ -16,6 +17,7 @@ class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
 
     lateinit var presenter: MainMapPresenter
     var map: GoogleMap? = null
+    var markersMap: MutableMap<Marker?, Int> = HashMap()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +46,17 @@ class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
     override fun onMapReady(map: GoogleMap?) {
         this.map = map
         presenter.onMapReady(map != null)
+        map?.setOnInfoWindowClickListener { marker -> presenter.onSvblClick(markersMap[marker]) }
     }
 
     override fun showMarkers(salvageables: List<Salvageable>) {
         map?.clear()
+        markersMap.clear()
         for (salvageable in salvageables)
-            map?.addMarker(MarkerOptions()
+            markersMap.put(map?.addMarker(MarkerOptions()
                     .position(salvageable.position)
                     .title(salvageable.name)
-                    .snippet(salvageable.description))
+                    .snippet(salvageable.description)), salvageable.id)
     }
 
     override fun setLoading(enabled: Boolean) {
@@ -64,6 +68,10 @@ class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
         // Dumb impl
         Toast.makeText(this, "An error occured: " + thrown.message, Toast.LENGTH_SHORT).show()
         thrown.printStackTrace()
+    }
+
+    override fun navigateToViewSvbl(svbl: Salvageable) {
+
     }
 
 }

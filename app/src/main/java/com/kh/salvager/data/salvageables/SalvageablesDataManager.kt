@@ -15,8 +15,8 @@ class SalvageablesDataManager private constructor() {
     }
 
     fun getSalvageables(callback: DataOperationCallback<List<Salvageable>>) {
-        callback.onSuccess(arrayListOf(Salvageable("Paris", "osef", "http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Paris/paris-attractions-xlarge.jpg", LatLng(48.864716, 2.349014)),
-                Salvageable("Lille", "osef2", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/0_Lille_-_Vieille_bourse_du_travail_051201b.JPG/266px-0_Lille_-_Vieille_bourse_du_travail_051201b.JPG", LatLng(50.629250, 3.057256)),
-                Salvageable("Bordeaux", "osef3", "https://luxeadventuretraveler.com/wp-content/uploads/2016/11/Luxe-Adventure-Traveler-Bordeaux-France-Port-Cailhou-1.jpg", LatLng(44.836151, -0.580816))))
+        callback.onSuccess(arrayListOf(Salvageable(0, "Canap a paris", "Canap en bois", "http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Paris/paris-attractions-xlarge.jpg", LatLng(48.864716, 2.349014)),
+                Salvageable(1, "Table a lille", "Table en bois", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/0_Lille_-_Vieille_bourse_du_travail_051201b.JPG/266px-0_Lille_-_Vieille_bourse_du_travail_051201b.JPG", LatLng(50.629250, 3.057256)),
+                Salvageable(2, "Chaise a Bordeaux", "Chaise en bois", "https://luxeadventuretraveler.com/wp-content/uploads/2016/11/Luxe-Adventure-Traveler-Bordeaux-France-Port-Cailhou-1.jpg", LatLng(44.836151, -0.580816))))
     }
 }

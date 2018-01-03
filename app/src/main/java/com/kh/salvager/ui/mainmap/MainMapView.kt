@@ -7,4 +7,5 @@ interface MainMapView {
     fun showMarkers(salvageables: List<Salvageable>)
     fun setLoading(enabled: Boolean)
     fun showGenericError(thrown: Throwable)
+    fun navigateToViewSvbl(svbl: Salvageable)
 }
