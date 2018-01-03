@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "346121231482",
+    "firebase_url": "https://salvager-aa6f1.firebaseio.com",
+    "project_id": "salvager-aa6f1",
+    "storage_bucket": "salvager-aa6f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346121231482:android:b4cc494244d478aa",
+        "android_client_info": {
+          "package_name": "com.kh.salvager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346121231482-0n2gqvl8fg82vs42ivu934qq7pp06ip3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kh.salvager",
+            "certificate_hash": "7a346f1e88ba69a7e692ec745c630288bf6f0557"
+          }
+        },
+        {
+          "client_id": "346121231482-474t7kr584j95a2nqrtr3kgld5qvspkj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiUotjKlX0C25M6czJWetQQy1zIq7uXPE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346121231482-474t7kr584j95a2nqrtr3kgld5qvspkj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
