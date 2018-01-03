@@ -57,6 +57,7 @@ class MainMapPresenter : Presenter<MainMapView> {
         }
     }
 
+    // a voir si on va pas plutot passer l'id a l'activity et que son presenter load depuis le storage 
     fun onSvblClick(svblId: Int?) {
         view.navigateToViewSvbl(salvageables.first { it.id == svblId })
     }

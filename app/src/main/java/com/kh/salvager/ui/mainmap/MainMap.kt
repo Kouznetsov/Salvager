@@ -1,5 +1,6 @@
 package com.kh.salvager.ui.mainmap
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,6 +12,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.kh.salvager.R
 import com.kh.salvager.data.salvageables.Salvageable
 import com.kh.salvager.ui.BaseActivity
+import com.kh.salvager.ui.viewsalvageable.SalvageableDetails
 import kotlinx.android.synthetic.main.activity_main_map.*
 
 class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
@@ -71,7 +73,10 @@ class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
     }
 
     override fun navigateToViewSvbl(svbl: Salvageable) {
+        var viewIntent = Intent(this, SalvageableDetails::class.java)
 
+        viewIntent.putExtra(SalvageableDetails.SVBL_EXTRA_NAME, svbl)
+        startActivity(viewIntent)
     }
 
 }
