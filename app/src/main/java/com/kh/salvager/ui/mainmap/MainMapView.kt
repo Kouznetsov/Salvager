@@ -6,6 +6,6 @@ import com.kh.salvager.data.salvageables.Salvageable
 interface MainMapView {
     fun showMarkers(salvageables: List<Salvageable>)
     fun setLoading(enabled: Boolean)
-    fun showGenericError(thrown: Throwable)
+    fun showGenericError(throwable: Throwable)
     fun navigateToViewSvbl(svbl: Salvageable)
 }

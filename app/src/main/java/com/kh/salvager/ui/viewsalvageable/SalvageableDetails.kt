@@ -1,17 +1,20 @@
 package com.kh.salvager.ui.viewsalvageable
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.kh.salvager.R
 import com.kh.salvager.data.salvageables.Salvageable
 import com.kh.salvager.ui.BaseActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_view_salvageable.*
 
-class SalvageableDetails : BaseActivity() {
+class SalvageableDetails : BaseActivity(), SalvageableDetailsView {
 
-    companion object { const val SVBL_EXTRA_NAME = "Salvageable" }
-    private lateinit var svbl: Salvageable
+    companion object {
+        const val SVBL_ID_EXTRA = "SalvageableID"
+    }
+
+    private lateinit var presenter: SalvageableDetailsPresenter
 
     override fun getLayoutResource(): Int {
         return R.layout.activity_view_salvageable
@@ -19,9 +22,31 @@ class SalvageableDetails : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        svbl = intent.extras.getParcelable(SVBL_EXTRA_NAME)
-        svblName.text = svbl.name
-        svblDescription.text = svbl.description
-        Picasso.with(this).load(svbl.pictureUri).into(svblPicture)
+        swipeToRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorAccent)
+        swipeToRefresh.setOnRefreshListener { presenter.loadSalvageableDetails(refresh = true) }
+        attachPresenter()
     }
+
+    private fun attachPresenter() {
+        if (lastCustomNonConfigurationInstance == null)
+            presenter = SalvageableDetailsPresenter(intent.extras.getInt(SVBL_ID_EXTRA))
+        else
+            presenter = lastCustomNonConfigurationInstance as SalvageableDetailsPresenter
+        presenter.attachView(this)
+    }
+
+    override fun onRetainCustomNonConfigurationInstance(): Any {
+        return presenter
+    }
+
+    override fun setLoading(status: Boolean) {
+        swipeToRefresh.isRefreshing = status
+    }
+
+    override fun displaySalvageable(salvageable: Salvageable) {
+        svblName.text = salvageable.name
+        svblDescription.text = salvageable.description
+        Picasso.with(this).load(salvageable.picturesUris[0]).into(svblPicture)
+    }
+
 }

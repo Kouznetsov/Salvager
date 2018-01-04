@@ -3,7 +3,6 @@ package com.kh.salvager.ui.mainmap
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -66,16 +65,10 @@ class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
         progressBar.visibility = if (enabled) View.VISIBLE else View.GONE
     }
 
-    override fun showGenericError(thrown: Throwable) {
-        // Dumb impl
-        Toast.makeText(this, "An error occured: " + thrown.message, Toast.LENGTH_SHORT).show()
-        thrown.printStackTrace()
-    }
-
     override fun navigateToViewSvbl(svbl: Salvageable) {
-        var viewIntent = Intent(this, SalvageableDetails::class.java)
+        val viewIntent = Intent(this, SalvageableDetails::class.java)
 
-        viewIntent.putExtra(SalvageableDetails.SVBL_EXTRA_NAME, svbl)
+        viewIntent.putExtra(SalvageableDetails.SVBL_ID_EXTRA, svbl.id)
         startActivity(viewIntent)
     }
 
