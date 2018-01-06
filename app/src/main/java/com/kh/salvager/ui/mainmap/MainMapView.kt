@@ -1,7 +1,6 @@
 package com.kh.salvager.ui.mainmap
 
-import com.google.android.gms.maps.GoogleMap
-import com.kh.salvager.data.salvageables.Salvageable
+import com.kh.domain.data.salvageables.Salvageable
 
 interface MainMapView {
     fun showMarkers(salvageables: List<Salvageable>)

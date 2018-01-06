@@ -1,9 +1,8 @@
 package com.kh.salvager.ui.viewsalvageable
 
 import android.os.Bundle
-import android.widget.Toast
 import com.kh.salvager.R
-import com.kh.salvager.data.salvageables.Salvageable
+import com.kh.domain.data.salvageables.Salvageable
 import com.kh.salvager.ui.BaseActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_view_salvageable.*

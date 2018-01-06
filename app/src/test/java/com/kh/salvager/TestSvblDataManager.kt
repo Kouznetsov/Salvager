@@ -1,9 +1,8 @@
 package com.kh.salvager
 
-import com.kh.salvager.data.DataOperationCallback
-import com.kh.salvager.data.salvageables.Salvageable
-import com.kh.salvager.data.salvageables.SalvageablesDataManager
-import org.junit.Assert
+import com.kh.domain.data.DataOperationCallback
+import com.kh.domain.data.salvageables.Salvageable
+import com.kh.domain.data.salvageables.SalvageablesDataManager
 import org.junit.Test
 
 /**

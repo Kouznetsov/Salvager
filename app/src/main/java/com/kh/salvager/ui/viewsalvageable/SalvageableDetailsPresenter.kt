@@ -1,8 +1,8 @@
 package com.kh.salvager.ui.viewsalvageable
 
-import com.kh.salvager.data.DataOperationCallback
-import com.kh.salvager.data.salvageables.Salvageable
-import com.kh.salvager.data.salvageables.SalvageablesDataManager
+import com.kh.domain.data.DataOperationCallback
+import com.kh.domain.data.salvageables.Salvageable
+import com.kh.domain.data.salvageables.SalvageablesDataManager
 import com.kh.salvager.ui.Presenter
 
 class SalvageableDetailsPresenter(private val svblId: Int) : Presenter<SalvageableDetailsView> {

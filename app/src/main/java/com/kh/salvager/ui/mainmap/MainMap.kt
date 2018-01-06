@@ -6,10 +6,11 @@ import android.view.View
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.kh.domain.data.salvageables.Salvageable
 import com.kh.salvager.R
-import com.kh.salvager.data.salvageables.Salvageable
 import com.kh.salvager.ui.BaseActivity
 import com.kh.salvager.ui.viewsalvageable.SalvageableDetails
 import kotlinx.android.synthetic.main.activity_main_map.*
@@ -55,7 +56,7 @@ class MainMap : BaseActivity(), MainMapView, OnMapReadyCallback {
         markersMap.clear()
         for (salvageable in salvageables)
             markersMap.put(map?.addMarker(MarkerOptions()
-                    .position(salvageable.position)
+                    .position(LatLng(salvageable.lat, salvageable.lng))
                     .title(salvageable.name)
                     .snippet(salvageable.description)), salvageable.id)
     }

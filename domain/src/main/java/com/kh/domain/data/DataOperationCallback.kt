@@ -1,4 +1,4 @@
-package com.kh.salvager.data
+package com.kh.domain.data
 
 interface DataOperationCallback<T> {
     fun onSuccess(data: T)
